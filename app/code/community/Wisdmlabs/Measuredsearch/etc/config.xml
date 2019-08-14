@@ -1,0 +1,79 @@
+<!--
+ /**
+    *  Measured Search Extension
+    *  @package    Wisdmlabs_MeasuredSearch
+    *  @author     WisdmLabs
+    */
+-->
+<config>    
+    <modules>
+        <Wisdmlabs_Measuredsearch>
+            <version>1.0</version>
+        </Wisdmlabs_Measuredsearch>
+    </modules>
+
+    <global>
+        <models>
+            <measuredsearch>
+                <class>Wisdmlabs_Measuredsearch_Model</class>
+            </measuredsearch>
+        </models>
+        <helpers>
+            <measuredsearch>
+                <class>Wisdmlabs_Measuredsearch_Helper</class>
+            </measuredsearch>
+        </helpers>
+    </global>
+
+    <frontend>
+        <routers>
+            <measuredsearch>
+                <use>standard</use>
+                <args>
+                    <module>Wisdmlabs_Measuredsearch</module>
+                    <frontName>measuredsearch</frontName>
+                </args>
+            </measuredsearch>
+        </routers>
+        <layout>
+            <updates>
+                <wisdmlabs_measuredsearch>
+                    <file>msearch/wisdmlabs_measuredsearch.xml</file>
+                </wisdmlabs_measuredsearch>
+            </updates>
+        </layout> 
+    </frontend>
+    
+    <adminhtml>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <wdm_config>
+                                        <title>wisdmlabs - All</title>
+                                    </wdm_config>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    </adminhtml>
+    
+    <default>
+        <wdm_config>
+            <wdm_group>
+                <active>1</active>
+            </wdm_group>
+        </wdm_config>
+    </default>
+</config>

@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Wisdmlabs_Measuredsearch>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Wisdmlabs_Measuredsearch>
+    </modules>
+</config>

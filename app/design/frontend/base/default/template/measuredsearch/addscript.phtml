@@ -1,0 +1,90 @@
+<?php
+$active = Mage::helper('measuredsearch')->ismeasuredsearchavailable();
+if($active)
+{
+	session_start();
+	if(! (isset($_GET['limit']) || isset($_GET['mode']) || isset($_GET['dir']) || isset($_GET['order'])))
+	{
+		$key = Mage::helper('measuredsearch')->ms_apikey();
+		$start_time=$_SESSION['start_time'];
+		$end_time=round(microtime(true) * 1000);
+		$latency=$end_time-$start_time;
+		$query = $this->helper('catalogsearch')->getQueryText();
+		$result=$this->getLayout()->getBlock("search.result")->getResultCount();
+		if($result)
+		{
+			$total= $this->getLayout()->getBlock('product_list_toolbar')->getTotalNum();
+			$first= $this->getLayout()->getBlock('product_list_toolbar')->getFirstNum();
+			$last= $this->getLayout()->getBlock('product_list_toolbar')->getLastNum();
+			$shown=($last-$first)+1;
+			$page=$this->getLayout()->getBlock('product_list_toolbar')->getCurrentPage();
+		}
+		else
+		{
+			$total=0;
+			$shown=0;
+			$page=0;
+		}
+
+		if(Mage::getSingleton('customer/session')->isLoggedIn()) {
+		     $user_id= Mage::getSingleton('customer/session')->getCustomer()->getId();
+		}
+		else
+		{
+			$user_id=0;
+		}
+
+		$session=Mage::getSingleton("core/session")->getSessionId();
+
+		echo "<div><script>var _msq = _msq || []; _msq.push(['track', {
+			key: '".$key."',
+			user: '".$user_id."',
+			session: '".$session."',
+			query: '".$query."',
+			shownHits: ".$shown.",
+			totalHits: ".$total.",
+			latency: ".$latency.",
+			pageNo: ".$page."
+			}]);(function() {
+		    var ms = document.createElement('script'); ms.type = 'text/javascript';
+		    ms.src = ('https:' == document.location.protocol ? 'https://www.' : 'http://') + 'measuredsearch.com/static/js/ms.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ms, s);
+		  })();</script>";
+
+		echo "<script src='http://code.jquery.com/jquery-latest.js'></script>";
+		echo "<script>jQuery(document).ready(function (){ jQuery('.product-image').click(function(){
+			var listitem= jQuery(this).closest('a').closest('li.item');
+			var pos= jQuery('li.item').index(listitem)+1;
+			var title=jQuery(this).closest('a').attr('title');
+			var url=jQuery(this).closest('a').attr('href');
+			var msg= _msq.push(['trackClick', {
+					key: '".$key."',
+					query: '".$query."',
+					position: pos,
+					cDocId: url,
+					cDocTitle: title,
+					pageNo: ".$page.",
+					shownHits: ".$shown.",
+					totalHits: ".$total."}]);
+		}); }); </script>";
+
+		echo "<script>jQuery(document).ready(function (){ jQuery('.product-name').click(function(){
+
+			var title=jQuery(this).find('a').attr('title');
+			var listitem= jQuery(this).closest('li');
+			var pos= jQuery('li.item').index(listitem)+1;
+			var url=jQuery(this).find('a').attr('href');
+			var msg= _msq.push(['trackClick', {
+					key: '".$key."',
+					query: '".$query."',
+					position: pos,
+					cDocId: url,
+					cDocTitle: title,
+					pageNo: ".$page.",
+					shownHits: ".$shown.",
+					totalHits: ".$total."}]); 
+		}); }); </script></div>";
+
+	}
+}
+?>

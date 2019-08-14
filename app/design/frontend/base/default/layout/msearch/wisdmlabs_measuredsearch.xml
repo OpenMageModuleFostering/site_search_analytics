@@ -1,0 +1,17 @@
+<layout version="0.1.0">
+    <catalogsearch_result_index>
+        <reference name="head">
+            <block type="core/template" name="measuredsearch_init_time" as="measuredsearch_init_time" template="measuredsearch/track_starttime.phtml" />
+        </reference>
+        <reference name="content">
+            <block type="core/text_list" name="msearch_before_body_end" as="msearch_before_body_end" />
+        </reference>
+        <reference name="msearch_before_body_end">
+            <block type="core/template" name="measuredsearch_add_script" as="measuredsearch_add_script" template="measuredsearch/addscript.phtml">
+                <block type="catalog/product_list_toolbar" name="product_list_toolbar" >
+                    <block type="page/html_pager" name="product_list_toolbar_pager"/>
+                </block>
+            </block>
+        </reference>
+    </catalogsearch_result_index>
+</layout>

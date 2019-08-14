@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package>
+    <name>Site_Search_Analytics</name>
+    <version>0.1.0</version>
+    <stability>stable</stability>
+    <license>GPL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Get detailed analytics for what your customers are searching for and whether they are finding what they need.</summary>
+    <description>Site Search Analytics for plugin allows you to keep track of what your customers are searching for and whether they are finding what they need.&#xD;
+&#xD;
+Tons of revenue gets lost when people don't find what they are looking for or if your product is hidden on the 3rd page. Get all insights you need to understand whether your site is optimized for search and generate more product sales.&#xD;
+&#xD;
+The site search analytics plugin is complemented by our mobile and web optimized dashboard that you can use to see all the reports.&#xD;
+The current version of the plugin supports the following features:&#xD;
+&#xD;
+    Top Searches &amp; No Result Searches - Identify what your customers are searching for and what they are not finding, giving you an opportunity to engage them more.&#xD;
+    Search Volume and Rate - Get data on your monthly, weekly and daily searches.&#xD;
+    Search Performance - Get data on how long your searches are taking and trends on the performance metrics.&#xD;
+</description>
+    <notes>The extension execution depend on the css class "product-image" and "product-name" that is assigned to each product on the search result page.</notes>
+    <authors><author><name>Measured Search</name><user>measuredsearch</user><email>sameer@measuredsearch.com</email></author></authors>
+    <date>2013-08-24</date>
+    <time>07:37:16</time>
+    <contents><target name="magecommunity"><dir name="Wisdmlabs"><dir name="Measuredsearch"><dir name="Helper"><file name="Data.php" hash="399ff7cb6f22e6721e2f74efc500b2ad"/></dir><dir name="Model"><file name="msearch.php" hash="b37366e24cad736e6ce15edb648a8b8b"/></dir><dir name="etc"><file name="config.xml" hash="4860452b5c53cb6815214edb5ab01b90"/><file name="system.xml" hash="342b947d2e3ed05163273999b6907077"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><dir name="msearch"><file name="wisdmlabs_measuredsearch.xml" hash="b3258d084639649458e50ebbcceb7c72"/></dir></dir><dir name="template"><dir name="measuredsearch"><file name="addscript.phtml" hash="b40a7e2ea6f6e559f0a7455e26b153db"/><file name="track_starttime.phtml" hash="cab33082dad29a4f9698bf3d410811ad"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Wisdmlabs_Measuredsearch.xml" hash="5d2aeba780c95feb410acdfd6de8b755"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.3.4</min><max>5.5.1</max></php></required></dependencies>
+</package>
