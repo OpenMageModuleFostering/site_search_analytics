@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Site_Search_Analytics",
+    "name": "OpenMageModuleFostering\/Site_Search_Analytics",
     "type": "magento-module",
     "license": "GPL",
     "homepage": "",
     "description": "Get detailed analytics for what your customers are searching for and whether they are finding what they need.",
     "authors": [
-    {
-        "name": "Measured Search",
-        "email": "sameer@measuredsearch.com"
-    }
-],
+        {
+            "name": "Measured Search",
+            "email": "sameer@measuredsearch.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
